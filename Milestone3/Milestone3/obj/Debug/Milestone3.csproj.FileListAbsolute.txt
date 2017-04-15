@@ -12,3 +12,6 @@ C:\Users\Luke\Desktop\Spring 2017\Cpts 451\ProjectRepo\Milestone3\Milestone3\obj
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\ProjectRepo\Milestone3\Milestone3\obj\Debug\Milestone3.csproj.GenerateResource.Cache
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\ProjectRepo\Milestone3\Milestone3\obj\Debug\Milestone3.exe
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\ProjectRepo\Milestone3\Milestone3\obj\Debug\Milestone3.pdb
+C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\bin\Debug\Milestone3.exe.config
+C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.exe
+C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.pdb
