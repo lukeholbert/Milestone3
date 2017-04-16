@@ -256,6 +256,270 @@ namespace Milestone3 {
         #line default
         #line hidden
         
+        
+        #line 67 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox selectLocationGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 73 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label label9;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 74 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox selectStateComboBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 75 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid cityDataGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 76 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label labe20;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 77 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid zipCodeDataGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 78 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label labe21;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 81 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox businessCategoryGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 87 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid mainBusinessCategorydataGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 88 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid selectedBusinessCategorydataGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 89 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button searchBusinesButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 90 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button businessCategoryAddButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 91 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button businessCategoryRemoveButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 94 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox openBusinessesGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 100 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label label10;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 101 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox dayOfWeekComboBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 102 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label label12;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 103 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox fromComboBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 104 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label label13;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 105 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox toComboBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 108 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox selectedBusinessGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 114 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label selectedBusinessLabel;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 115 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox tipTextBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 116 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button selectedBusinessCheckinButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 117 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button selectedBusinessAddTipButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 120 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox searchResultsGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 121 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid dataGrid;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 130 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox businessDetailsGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 137 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button businessDetailsShowCheckinsButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 138 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button businessDetailsShowTipsButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 141 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.GroupBox categoryStatusGroupBox;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 147 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button numbBisPerCatButton;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 148 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button avgStarPerCatButton;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -384,6 +648,105 @@ namespace Milestone3 {
             return;
             case 27:
             this.tipDataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 28:
+            this.selectLocationGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 29:
+            this.label9 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 30:
+            this.selectStateComboBox = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 31:
+            this.cityDataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 32:
+            this.labe20 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 33:
+            this.zipCodeDataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 34:
+            this.labe21 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 35:
+            this.businessCategoryGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 36:
+            this.mainBusinessCategorydataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 37:
+            this.selectedBusinessCategorydataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 38:
+            this.searchBusinesButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 39:
+            this.businessCategoryAddButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 40:
+            this.businessCategoryRemoveButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 41:
+            this.openBusinessesGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 42:
+            this.label10 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 43:
+            this.dayOfWeekComboBox = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 44:
+            this.label12 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 45:
+            this.fromComboBox = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 46:
+            this.label13 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 47:
+            this.toComboBox = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 48:
+            this.selectedBusinessGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 49:
+            this.selectedBusinessLabel = ((System.Windows.Controls.Label)(target));
+            return;
+            case 50:
+            this.tipTextBox = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 51:
+            this.selectedBusinessCheckinButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 52:
+            this.selectedBusinessAddTipButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 53:
+            this.searchResultsGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 54:
+            this.dataGrid = ((System.Windows.Controls.DataGrid)(target));
+            return;
+            case 55:
+            this.businessDetailsGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 56:
+            this.businessDetailsShowCheckinsButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 57:
+            this.businessDetailsShowTipsButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 58:
+            this.categoryStatusGroupBox = ((System.Windows.Controls.GroupBox)(target));
+            return;
+            case 59:
+            this.numbBisPerCatButton = ((System.Windows.Controls.Button)(target));
+            return;
+            case 60:
+            this.avgStarPerCatButton = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
