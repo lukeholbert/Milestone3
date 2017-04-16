@@ -21,11 +21,48 @@ namespace Milestone3
   /// </summary>
   public partial class MainWindow : Window
   {
+    private List<Friend> friends = new List<Friend>();
+    private List<Tip> tips = new List<Tip>();
+
+    public class Friend
+    {
+      string name;
+      string rating;
+      string ysince;
+      string fid;
+
+      public Friend(string newFid, string newRating, string newName, string newYsince)
+      {
+        name = newName;
+        rating = newRating;
+        ysince = newYsince;
+        fid = newFid;
+      }
+    }
+
+    public class Tip
+    {
+      string uname;
+      string bname;
+      string city;
+      string text;
+
+      public Tip(string newUname, string newBname, string newCity, string newText)
+      {
+        uname = newUname;
+        bname = newBname;
+        city = newCity;
+        text = newText;
+      }
+    }
 
     const string login = "Host=localhost; Username=postgres; Password=password; Database = Milestone2DB";
 
     private void setUserButton_Click(object sender, RoutedEventArgs e)
     {
+      friends.Clear();
+      tips.Clear();
+
       using (var sqlconn = new NpgsqlConnection(login))
       {
         sqlconn.Open();
@@ -48,7 +85,16 @@ namespace Milestone3
             }
           }
 
-          cmd.CommandText = "SELECT name, average_stars, yelping_since FROM Users INNER JOIN (SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid; ";
+          cmd.CommandText = "SELECT fid, name, average_stars, yelping_since FROM Users INNER JOIN (SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid; ";
+          using (var reader = cmd.ExecuteReader())
+          {
+            while (reader.Read())
+            {
+              friends.Add(new Friend(reader.GetString(0), reader.GetDecimal(2).ToString(), reader.GetString(1), reader.GetString(3)));
+            }
+          }
+
+          cmd.CommandText = "SELECT uname, name, city, text FROM Business NATURAL JOIN (SELECT uname, bid, text FROM Tip NATURAL JOIN (SELECT fid AS uid, name AS uname FROM Users INNER JOIN(SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid) AS frt) AS Tipfr;";
           using (var reader = cmd.ExecuteReader())
           {
             while (reader.Read())
@@ -57,8 +103,6 @@ namespace Milestone3
               continue;
             }
           }
-
-          // Last query for populating recent tips
         }
         sqlconn.Close();
       }
