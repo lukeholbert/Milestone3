@@ -36,18 +36,18 @@
                             <Label x:Name="label1" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
                             <Label x:Name="label2" Content="Stars:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
                             <Label x:Name="label3" Content="Fans:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
-                            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,14,0,0"/>
-                            <TextBox x:Name="starsTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,45,0,0"/>
-                            <TextBox x:Name="fansTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,76,0,0"/>
+                            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,14,0,0" IsEnabled="False"/>
+                            <TextBox x:Name="starsTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,45,0,0" IsEnabled="False"/>
+                            <TextBox x:Name="fansTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,76,0,0" IsEnabled="False"/>
                             <Label x:Name="label4" Content="Yelping Since:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,14,0,0"/>
-                            <TextBox x:Name="yelpSinceTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="357,14,0,0"/>
+                            <TextBox x:Name="yelpSinceTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="357,14,0,0" IsEnabled="False"/>
                             <Label x:Name="label5" Content="Votes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,72,0,0"/>
                             <Label x:Name="label6" Content="Funny:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,72,0,0"/>
-                            <TextBox x:Name="funnyTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="320,76,0,0"/>
+                            <TextBox x:Name="funnyTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="320,76,0,0" IsEnabled="False"/>
                             <Label x:Name="label7" Content="Cool:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,72,0,0"/>
-                            <TextBox x:Name="coolTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="435,76,0,0"/>
+                            <TextBox x:Name="coolTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="435,76,0,0" IsEnabled="False"/>
                             <Label x:Name="label8" Content="Useful:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="512,72,0,0"/>
-                            <TextBox x:Name="usefulTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="563,76,0,0"/>
+                            <TextBox x:Name="usefulTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="563,76,0,0" IsEnabled="False"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="tipGroupBox" Header="Tips By Friends" HorizontalAlignment="Left" VerticalAlignment="Top" Height="496" Width="656" Margin="320,135,0,0">
