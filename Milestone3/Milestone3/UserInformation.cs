@@ -20,6 +20,20 @@ namespace Milestone3
   /// </summary>
   public partial class MainWindow : Window
   {
+    
+    private void setUserButton_Click(object sender, RoutedEventArgs e)
+    {
 
+    }
+
+    private void removeButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void rateButton_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
   }
 }
