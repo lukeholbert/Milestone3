@@ -16,16 +16,109 @@ using Npgsql;
 
 namespace Milestone3
 {
+
+  public class Friend
+  {
+    public string Name { get; set; }
+    public string AvgStars { get; set; }
+    public string YelpingSince { get; set; }
+    public string fid;
+
+    public Friend(string newFid, string newRating, string newName, string newYsince)
+    {
+      Name = newName;
+      AvgStars = newRating;
+      YelpingSince = newYsince;
+      fid = newFid;
+    }
+  }
+
+  public class Tip
+  {
+    public string Name { get; set; }
+    public string Business { get; set; }
+    public string City { get; set; }
+    public string Text { get; set; }
+
+    public Tip(string newUname, string newBname, string newCity, string newText)
+    {
+      Name = newUname;
+      Business = newBname;
+      City = newCity;
+      Text = newText;
+    }
+  }
+
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : Window
   {
+    private List<Friend> friends = new List<Friend>();
+    private List<Tip> tips = new List<Tip>();
 
     const string login = "Host=localhost; Username=postgres; Password=password; Database = Milestone2DB";
 
     private void setUserButton_Click(object sender, RoutedEventArgs e)
     {
+      updateUserInfo();
+    }
+
+    private void removeButton_Click(object sender, RoutedEventArgs e)
+    {
+      if(friendDataGrid.SelectedIndex == -1)
+      {
+        return;
+      }
+
+      // Write query for removing user of selected friend (will need to keep fids stored from original query to find friend again)
+      using (var sqlconn = new NpgsqlConnection(login))
+      {
+        sqlconn.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+          cmd.CommandText = "DELETE FROM Friend WHERE uid ='" + idTextBox.Text + "' AND fid = '" + friends[friendDataGrid.SelectedIndex].fid + "';";
+          cmd.ExecuteNonQuery();
+        }
+
+        sqlconn.Close();
+      }
+
+      updateUserInfo();
+    }
+
+    private void rateButton_Click(object sender, RoutedEventArgs e)
+    {
+      // Write query that updates the rating of a friend based on the new number input there
+
+      if (friendDataGrid.SelectedIndex == -1)
+      {
+        return;
+      }
+      using (var sqlconn = new NpgsqlConnection(login))
+      {
+        sqlconn.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+          double rating = (double.Parse(friends[friendDataGrid.SelectedIndex].AvgStars) + double.Parse(rateTextBox.Text))/2;
+          cmd.CommandText = "UPDATE Users SET average_stars = " + rating + " WHERE uid ='" + friends[friendDataGrid.SelectedIndex].fid + "';";
+          cmd.ExecuteNonQuery();
+        }
+
+        sqlconn.Close();
+      }
+
+      updateUserInfo();
+    }
+
+    private void updateUserInfo()
+    {
+      friends.Clear();
+      tips.Clear();
+      // friendDataGrid.
+
       using (var sqlconn = new NpgsqlConnection(login))
       {
         sqlconn.Open();
@@ -48,30 +141,33 @@ namespace Milestone3
             }
           }
 
-          cmd.CommandText = "SELECT name, average_stars, yelping_since FROM Users INNER JOIN (SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid; ";
+          cmd.CommandText = "SELECT fid, name, average_stars, yelping_since FROM Users INNER JOIN (SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid; ";
           using (var reader = cmd.ExecuteReader())
           {
             while (reader.Read())
             {
-              // Bind query results to data view
-              continue;
+              friends.Add(new Friend(reader.GetString(0), reader.GetDecimal(2).ToString(), reader.GetString(1), reader.GetString(3)));
             }
+
+            friendDataGrid.ItemsSource = friends;
           }
 
-          // Last query for populating recent tips
+          cmd.CommandText = "SELECT uname, name, city, text FROM Business NATURAL JOIN (SELECT uname, bid, text FROM Tip NATURAL JOIN (SELECT fid AS uid, name AS uname FROM Users INNER JOIN(SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid) AS frt) AS Tipfr;";
+          using (var reader = cmd.ExecuteReader())
+          {
+            while (reader.Read())
+            {
+              tips.Add(new Tip(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+            }
+
+            tipDataGrid.ItemsSource = tips;
+          }
         }
         sqlconn.Close();
       }
-    }
 
-    private void removeButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Write query for removing user of selected friend (will need to keep fids stored from original query to find friend again)
-    }
-
-    private void rateButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Write query that updates the rating of a friend based on the new number input there
+      friendDataGrid.Items.Refresh();
+      tipDataGrid.Items.Refresh();
     }
   }
 }
