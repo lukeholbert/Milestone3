@@ -8,8 +8,61 @@
         Title="MainWindow" Height="700" Width="1000">
     <Grid>
         <TabControl>
-            <TabItem Header="User Information" />
-            <TabItem Header="Business Search" />
+            <TabItem Header="User Information">
+                <Grid Margin="0,-7,0,7">
+                    <GroupBox x:Name="userGroupBox" Header="Set Current User" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="300" Margin="10,10,0,0">
+                        <Grid>
+                            <Label x:Name="label" Content="User ID:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="idTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="268" Margin="10,41,0,0"/>
+                            <Button x:Name="setUserButton" Content="Set User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="10,69,0,0" Click="setUserButton_Click"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="friendGroupBox" Header="Friends" HorizontalAlignment="Left" VerticalAlignment="Top" Height="496" Width="300" Margin="10,135,0,0">
+                        <Grid>
+                            <DataGrid x:Name="friendDataGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.75,-14.462" Height="379" Width="268">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name" MinWidth="100"/>
+                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Avg Stars" MinWidth="50"/>
+                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Yelping Since" MinWidth="120"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button x:Name="rateButton" Content="Rate Friend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="179" Margin="10,407,0,0" Click="rateButton_Click"/>
+                            <Button x:Name="removeButton" Content="Remove Friend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="10,444,0,0" Click="removeButton_Click"/>
+                            <TextBox x:Name="rateTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Margin="194,408,0,0"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="infoGroupBox" Header="User Information" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="656" Margin="320,0,0,0">
+                        <Grid>
+                            <Label x:Name="label1" Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                            <Label x:Name="label2" Content="Stars:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"/>
+                            <Label x:Name="label3" Content="Fans:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,72,0,0"/>
+                            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,14,0,0" IsEnabled="False"/>
+                            <TextBox x:Name="starsTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,45,0,0" IsEnabled="False"/>
+                            <TextBox x:Name="fansTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="59,76,0,0" IsEnabled="False"/>
+                            <Label x:Name="label4" Content="Yelping Since:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,14,0,0"/>
+                            <TextBox x:Name="yelpSinceTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="357,14,0,0" IsEnabled="False"/>
+                            <Label x:Name="label5" Content="Votes:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="223,72,0,0"/>
+                            <Label x:Name="label6" Content="Funny:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,72,0,0"/>
+                            <TextBox x:Name="funnyTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="320,76,0,0" IsEnabled="False"/>
+                            <Label x:Name="label7" Content="Cool:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393,72,0,0"/>
+                            <TextBox x:Name="coolTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="435,76,0,0" IsEnabled="False"/>
+                            <Label x:Name="label8" Content="Useful:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="512,72,0,0"/>
+                            <TextBox x:Name="usefulTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" Margin="563,76,0,0" IsEnabled="False"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="tipGroupBox" Header="Tips By Friends" HorizontalAlignment="Left" VerticalAlignment="Top" Height="496" Width="656" Margin="320,135,0,0">
+                        <DataGrid x:Name="tipDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="460" Margin="0,10,-2,0" Width="646" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="User Name" MinWidth="100"/>
+                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Business" MinWidth="200"/>
+                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="City" MinWidth="100"/>
+                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Text" MinWidth="300"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Business Search"/>
         </TabControl>
     </Grid>
 </Window>
