@@ -22,7 +22,7 @@ namespace Milestone3
     public string Name { get; set; }
     public string AvgStars { get; set; }
     public string YelpingSince { get; set; }
-    private string fid { get; }
+    public string fid;
 
     public Friend(string newFid, string newRating, string newName, string newYsince)
     {
@@ -61,8 +61,63 @@ namespace Milestone3
 
     private void setUserButton_Click(object sender, RoutedEventArgs e)
     {
+      updateUserInfo();
+    }
+
+    private void removeButton_Click(object sender, RoutedEventArgs e)
+    {
+      if(friendDataGrid.SelectedIndex == -1)
+      {
+        return;
+      }
+
+      // Write query for removing user of selected friend (will need to keep fids stored from original query to find friend again)
+      using (var sqlconn = new NpgsqlConnection(login))
+      {
+        sqlconn.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+          cmd.CommandText = "DELETE FROM Friend WHERE uid ='" + idTextBox.Text + "' AND fid = '" + friends[friendDataGrid.SelectedIndex].fid + "';";
+          cmd.ExecuteNonQuery();
+        }
+
+        sqlconn.Close();
+      }
+
+      updateUserInfo();
+    }
+
+    private void rateButton_Click(object sender, RoutedEventArgs e)
+    {
+      // Write query that updates the rating of a friend based on the new number input there
+
+      if (friendDataGrid.SelectedIndex == -1)
+      {
+        return;
+      }
+      using (var sqlconn = new NpgsqlConnection(login))
+      {
+        sqlconn.Open();
+        using (var cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+          double rating = (double.Parse(friends[friendDataGrid.SelectedIndex].AvgStars) + double.Parse(rateTextBox.Text))/2;
+          cmd.CommandText = "UPDATE Users SET average_stars = " + rating + " WHERE uid ='" + friends[friendDataGrid.SelectedIndex].fid + "';";
+          cmd.ExecuteNonQuery();
+        }
+
+        sqlconn.Close();
+      }
+
+      updateUserInfo();
+    }
+
+    private void updateUserInfo()
+    {
       friends.Clear();
       tips.Clear();
+      // friendDataGrid.
 
       using (var sqlconn = new NpgsqlConnection(login))
       {
@@ -110,16 +165,9 @@ namespace Milestone3
         }
         sqlconn.Close();
       }
-    }
 
-    private void removeButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Write query for removing user of selected friend (will need to keep fids stored from original query to find friend again)
-    }
-
-    private void rateButton_Click(object sender, RoutedEventArgs e)
-    {
-      // Write query that updates the rating of a friend based on the new number input there
+      friendDataGrid.Items.Refresh();
+      tipDataGrid.Items.Refresh();
     }
   }
 }
