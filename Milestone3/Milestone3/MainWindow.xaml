@@ -19,16 +19,10 @@
                     </GroupBox>
                     <GroupBox x:Name="friendGroupBox" Header="Friends" HorizontalAlignment="Left" VerticalAlignment="Top" Height="496" Width="300" Margin="10,135,0,0">
                         <Grid>
-                            <DataGrid x:Name="friendDataGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.75,-14.462" Height="379" Width="268">
-                                <DataGrid.Columns>
-                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name" MinWidth="100"/>
-                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Avg Stars" MinWidth="50"/>
-                                    <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Yelping Since" MinWidth="120"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
                             <Button x:Name="rateButton" Content="Rate Friend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="179" Margin="10,407,0,0" Click="rateButton_Click"/>
                             <Button x:Name="removeButton" Content="Remove Friend" HorizontalAlignment="Left" VerticalAlignment="Top" Width="268" Margin="10,444,0,0" Click="removeButton_Click"/>
                             <TextBox x:Name="rateTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Margin="194,408,0,0"/>
+                            <DataGrid x:Name="friendDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="392" Width="268" Margin="10,10,0,0"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="infoGroupBox" Header="User Information" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="656" Margin="320,0,0,0">
@@ -51,14 +45,7 @@
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="tipGroupBox" Header="Tips By Friends" HorizontalAlignment="Left" VerticalAlignment="Top" Height="496" Width="656" Margin="320,135,0,0">
-                        <DataGrid x:Name="tipDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="460" Margin="0,10,-2,0" Width="646" AutoGenerateColumns="False">
-                            <DataGrid.Columns>
-                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="User Name" MinWidth="100"/>
-                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Business" MinWidth="200"/>
-                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="City" MinWidth="100"/>
-                                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Text" MinWidth="300"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <DataGrid x:Name="tipDataGrid" HorizontalAlignment="Left" VerticalAlignment="Top" Height="456" Width="625" Margin="10,10,0,0"/>
                     </GroupBox>
                 </Grid>
             </TabItem>

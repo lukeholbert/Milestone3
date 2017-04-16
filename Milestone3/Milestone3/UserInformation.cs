@@ -16,6 +16,39 @@ using Npgsql;
 
 namespace Milestone3
 {
+
+  public class Friend
+  {
+    public string Name { get; set; }
+    public string AvgStars { get; set; }
+    public string YelpingSince { get; set; }
+    private string fid { get; }
+
+    public Friend(string newFid, string newRating, string newName, string newYsince)
+    {
+      Name = newName;
+      AvgStars = newRating;
+      YelpingSince = newYsince;
+      fid = newFid;
+    }
+  }
+
+  public class Tip
+  {
+    public string Name { get; set; }
+    public string Business { get; set; }
+    public string City { get; set; }
+    public string Text { get; set; }
+
+    public Tip(string newUname, string newBname, string newCity, string newText)
+    {
+      Name = newUname;
+      Business = newBname;
+      City = newCity;
+      Text = newText;
+    }
+  }
+
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
@@ -23,38 +56,6 @@ namespace Milestone3
   {
     private List<Friend> friends = new List<Friend>();
     private List<Tip> tips = new List<Tip>();
-
-    public class Friend
-    {
-      string Name;
-      string rating;
-      string ysince;
-      string fid;
-
-      public Friend(string newFid, string newRating, string newName, string newYsince)
-      {
-        Name = newName;
-        rating = newRating;
-        ysince = newYsince;
-        fid = newFid;
-      }
-    }
-
-    public class Tip
-    {
-      string uname;
-      string bname;
-      string city;
-      string text;
-
-      public Tip(string newUname, string newBname, string newCity, string newText)
-      {
-        uname = newUname;
-        bname = newBname;
-        city = newCity;
-        text = newText;
-      }
-    }
 
     const string login = "Host=localhost; Username=postgres; Password=password; Database = Milestone2DB";
 
