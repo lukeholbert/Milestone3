@@ -26,14 +26,14 @@ namespace Milestone3
 
     public class Friend
     {
-      string name;
+      string Name;
       string rating;
       string ysince;
       string fid;
 
       public Friend(string newFid, string newRating, string newName, string newYsince)
       {
-        name = newName;
+        Name = newName;
         rating = newRating;
         ysince = newYsince;
         fid = newFid;
@@ -92,6 +92,8 @@ namespace Milestone3
             {
               friends.Add(new Friend(reader.GetString(0), reader.GetDecimal(2).ToString(), reader.GetString(1), reader.GetString(3)));
             }
+
+            friendDataGrid.ItemsSource = friends;
           }
 
           cmd.CommandText = "SELECT uname, name, city, text FROM Business NATURAL JOIN (SELECT uname, bid, text FROM Tip NATURAL JOIN (SELECT fid AS uid, name AS uname FROM Users INNER JOIN(SELECT * FROM Friend WHERE uid = '" + idTextBox.Text + "') fr ON Users.uid = fr.fid) AS frt) AS Tipfr;";
@@ -99,9 +101,10 @@ namespace Milestone3
           {
             while (reader.Read())
             {
-              // Bind query results to data view
-              continue;
+              tips.Add(new Tip(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
             }
+
+            tipDataGrid.ItemsSource = tips;
           }
         }
         sqlconn.Close();
