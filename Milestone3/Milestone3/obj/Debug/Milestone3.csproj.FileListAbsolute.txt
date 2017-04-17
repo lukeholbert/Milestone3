@@ -37,6 +37,7 @@ C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\N
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Npgsql.xml
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.csprojResolveAssemblyReference.cache
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\MainWindow.g.cs
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\App.g.cs
 C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3_MarkupCompile.cache
