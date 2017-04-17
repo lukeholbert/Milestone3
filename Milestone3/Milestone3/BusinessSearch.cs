@@ -194,6 +194,12 @@ namespace Milestone3
             selectedBusinessCategorydataGrid.Items.Refresh();
         }
 
+        private void businessDetailsShowCheckinsButton_Click(object sender, RoutedEventArgs e)
+        {
+            CheckinsChart popUpChart = new CheckinsChart();
+            popUpChart.Show();
+        }
+
         //When you press the 'Search Businessess' button int he 'Business Category' group.
         private void searchBusinesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -257,10 +263,10 @@ namespace Milestone3
 
             foreach(StringContainer obj in catList)
             {
-                conditional.Append("name = '" + obj.ToString() + "' OR ");
+                conditional.Append("name = '" + obj.ToString() + "' AND ");
             }
 
-            conditional.Remove(conditional.Length-4,4);
+            conditional.Remove(conditional.Length-5,5);
             conditional.Append(")");
 
             return conditional.ToString();
@@ -299,5 +305,10 @@ namespace Milestone3
 
             return conditional.ToString();
         }
+
+
+
+
+        
     }
 }

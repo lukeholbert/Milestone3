@@ -1,0 +1,18 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Milestone3"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" x:Class="Milestone3.CheckinsChart"
+        mc:Ignorable="d"
+        Title="CheckinsChart" Height="332" Width="489">
+    <Grid Margin="0,0,2,2">
+        <chartingToolkit:Chart Name="CheckinGraph" HorizontalAlignment="Left" Margin="10,10,0,0" Title="Chart Title" VerticalAlignment="Top" Height="279" Width="459">
+            <chartingToolkit:Chart.DataContext>
+                <PointCollection>1,10 2,20 3,30 4,40</PointCollection>
+            </chartingToolkit:Chart.DataContext>
+            <chartingToolkit:ColumnSeries DependentValuePath="Values" IndependentValuePath="Key" ItemsSource="{Binding}"/>
+        </chartingToolkit:Chart>
+    </Grid>
+</Window>

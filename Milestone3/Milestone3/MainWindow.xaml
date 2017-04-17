@@ -121,7 +121,7 @@
                                 <ColumnDefinition Width="9*"/>
                                 <ColumnDefinition Width="118*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="businessDetailsShowCheckinsButton" Content="Show Checkins" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold"/>
+                            <Button x:Name="businessDetailsShowCheckinsButton" Content="Show Checkins" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold" Click="businessDetailsShowCheckinsButton_Click"/>
                             <Button x:Name="businessDetailsShowTipsButton" Content="Show Tips" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold"/>
                         </Grid>
                     </GroupBox>
