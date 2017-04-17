@@ -73,7 +73,7 @@
                             </Grid.ColumnDefinitions>
                             <DataGrid x:Name="mainBusinessCategorydataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,-19,0,0" VerticalAlignment="Top" Height="191" Width="197" Grid.ColumnSpan="2"/>
                             <DataGrid x:Name="selectedBusinessCategorydataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" Height="85" Width="197" Grid.ColumnSpan="2" IsReadOnly="True"/>
-                            <Button x:Name="searchBusinesButton" Grid.ColumnSpan="2" Content="Search Businesses" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="197" Height="25" FontWeight="Bold"/>
+                            <Button x:Name="searchBusinesButton" Grid.ColumnSpan="2" Content="Search Businesses" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="197" Height="25" FontWeight="Bold" Click="searchBusinesButton_Click"/>
                             <Button x:Name="businessCategoryAddButton" Grid.ColumnSpan="2" Content="Add" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="businessCategoryAddButton_Click"/>
                             <Button x:Name="businessCategoryRemoveButton" Content="Remove" Margin="75,177,10,0" VerticalAlignment="Top" Grid.Column="1" Height="20" Click="businessCategoryRemoveButton_Click"/>
                         </Grid>
@@ -105,12 +105,12 @@
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="searchResultsGroupBox" Header="SEARCH RESULTS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="475" Width="558" Margin="234,55,0,0">
-                        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Height="440" Width="548" IsReadOnly="True">
+                        <DataGrid x:Name="searchResultsDataGrid" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Height="440" Width="548">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="BusinessName" Width="150"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Address" Width="265"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="#ofTips"/>
-                                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="TotalCheckins" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="BusinessName" Width="140"/>
+                                <DataGridTextColumn Binding="{Binding address}" ClipboardContentBinding="{x:Null}" Header="Address" Width="265"/>
+                                <DataGridTextColumn Binding="{Binding numtips}" ClipboardContentBinding="{x:Null}" Header="#ofTips"/>
+                                <DataGridTextColumn Binding="{Binding totcheckins}" ClipboardContentBinding="{x:Null}" Header="TotalCheckins" Width="200"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

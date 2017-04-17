@@ -25,10 +25,11 @@ namespace Milestone3
         public MainWindow()
         {
             InitializeComponent();
-
+            
+            //Functions needed to be called on startup to populate options in the Business tab.
             PrimeStateDropDownBox();
             PrimeCategoryBox();
-            //PrimeBusinessHoursDropDownBoxs();
+            PrimeBusinessHoursDropDownBoxes();
         }
         
         private void PrimeStateDropDownBox()
@@ -79,8 +80,8 @@ namespace Milestone3
                 sqlconn.Close();
             }//End SQL interaction
         }
-        /*
-        private void PrimeBusinessHoursDropDownBoxs()
+        
+        private void PrimeBusinessHoursDropDownBoxes()
         {
             dayOfWeekComboBox.Items.Add("Sunday");
             dayOfWeekComboBox.Items.Add("Monday");
@@ -90,56 +91,13 @@ namespace Milestone3
             dayOfWeekComboBox.Items.Add("Friday");
             dayOfWeekComboBox.Items.Add("Saturday");
 
-            fromComboBox.Items.Add("01:00");
-            fromComboBox.Items.Add("02:00");
-            fromComboBox.Items.Add("03:00");
-            fromComboBox.Items.Add("04:00");
-            fromComboBox.Items.Add("05:00");
-            fromComboBox.Items.Add("06:00");
-            fromComboBox.Items.Add("07:00");
-            fromComboBox.Items.Add("08:00");
-            fromComboBox.Items.Add("09:00");
-            fromComboBox.Items.Add("10:00");
-            fromComboBox.Items.Add("11:00");
-            fromComboBox.Items.Add("12:00");
-            fromComboBox.Items.Add("13:00");
-            fromComboBox.Items.Add("14:00");
-            fromComboBox.Items.Add("15:00");
-            fromComboBox.Items.Add("16:00");
-            fromComboBox.Items.Add("17:00");
-            fromComboBox.Items.Add("18:00");
-            fromComboBox.Items.Add("19:00");
-            fromComboBox.Items.Add("20:00");
-            fromComboBox.Items.Add("21:00");
-            fromComboBox.Items.Add("22:00");
-            fromComboBox.Items.Add("23:00");
-            fromComboBox.Items.Add("24:00");
-
-            toComboBox.Items.Add("01:00");
-            toComboBox.Items.Add("02:00");
-            toComboBox.Items.Add("03:00");
-            toComboBox.Items.Add("04:00");
-            toComboBox.Items.Add("05:00");
-            toComboBox.Items.Add("06:00");
-            toComboBox.Items.Add("07:00");
-            toComboBox.Items.Add("08:00");
-            toComboBox.Items.Add("09:00");
-            toComboBox.Items.Add("10:00");
-            toComboBox.Items.Add("11:00");
-            toComboBox.Items.Add("12:00");
-            toComboBox.Items.Add("13:00");
-            toComboBox.Items.Add("14:00");
-            toComboBox.Items.Add("15:00");
-            toComboBox.Items.Add("16:00");
-            toComboBox.Items.Add("17:00");
-            toComboBox.Items.Add("18:00");
-            toComboBox.Items.Add("19:00");
-            toComboBox.Items.Add("20:00");
-            toComboBox.Items.Add("21:00");
-            toComboBox.Items.Add("22:00");
-            toComboBox.Items.Add("23:00");
-            toComboBox.Items.Add("24:00");
+            for(int i = 0; i < 24; i++)
+            {
+                fromComboBox.Items.Add(times[i]);
+                toComboBox.Items.Add(times[i]);
+            }
         }
-        */
+
+        
     }
 }
