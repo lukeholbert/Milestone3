@@ -210,7 +210,7 @@ namespace Milestone3
                 using (NpgsqlCommand cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = sqlconn;
-                    cmd.CommandText = "SELECT name, full_address, review_count, numcheckins FROM Business WHERE " + LocationCondition() + " AND " + CategoryCondition() + " AND " + HoursCondition() + " order by name; ";
+                    cmd.CommandText = "SELECT name, full_address, review_count, numcheckins FROM Business WHERE (" + LocationCondition() + ") AND (" + CategoryCondition() + ") AND (" + HoursCondition() + ") order by name; ";
 
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -229,7 +229,7 @@ namespace Milestone3
 
 
         //-----Utility Functions------------------------------------------------------------------------
-        //Generates a conditional for a SQL query based upon the selected items in the 'Select Locaiton' group.
+        //Generates a conditional for a SQL query based upon the selected items in the 'Select Location' group.
         private String LocationCondition()
         {
             String state = (String)selectStateComboBox.SelectedItem;
@@ -259,7 +259,7 @@ namespace Milestone3
         {
             if(catList.Count == 0) { return "true"; }
 
-            StringBuilder conditional = new StringBuilder("bid IN (SELECT bid FROM Category WHERE ");
+            StringBuilder conditional = new StringBuilder("bid IN (SELECT DISTINCT bid FROM Category WHERE ");
 
             foreach(StringContainer obj in catList)
             {
@@ -281,26 +281,46 @@ namespace Milestone3
             String open = (String)fromComboBox.SelectedItem;
             String close = (String)toComboBox.SelectedItem;
 
-            if(day == null && open == null && close == null) { return "true"; }
+            if(day == null || open == null || close == null) { return "true"; }
 
-            StringBuilder conditional = new StringBuilder("bid IN (SELECT bid FROM Hours WHERE ");
-
-            if (day != null)
+            StringBuilder conditional = new StringBuilder("bid IN (SELECT DISTINCT bid FROM Hours WHERE ");
+            
+            //Find where in the time array the open and close times are.
+            int openIndex = -1;
+            int closeIndex = -1;
+            for(int i = 0; i < 24; i++)
             {
-                conditional.Append("day = '" + day + "' AND ");
+                if (times[i].Equals(open))
+                    openIndex = i;
+                if (times[i].Equals(close))
+                    closeIndex = i;
             }
 
-            if(open != null)
-            {
-                conditional.Append("opentime = '" + open + "' AND ");
-            }
+            //If the open/close time isn't in the time array or if the biz closes before, or when, it opens, invalid input.
+            if (closeIndex <= openIndex || closeIndex == -1 || openIndex == -1) { return "true"; }
 
-            if(close != null)
-            {
-                conditional.Append("closetime = '" + close + "' AND ");
-            }
+            //Add the day constraint.
+            conditional.Append("day = '" + day + "' AND ");
 
+            //Add the applicable open times constraint.
+            conditional.Append("(");
+            for(; openIndex >= 0; openIndex--)
+            {
+                conditional.Append("opentime = '" + times[openIndex] + "' OR ");
+            }
             conditional.Remove(conditional.Length - 4, 4);
+            conditional.Append(") AND ");
+
+            //Add the applicable close times constraint.
+            conditional.Append("(");
+            for (; closeIndex < 24; closeIndex++)
+            {
+                conditional.Append("closetime = '" + times[closeIndex] + "' OR ");
+            }
+            conditional.Remove(conditional.Length - 4, 4);
+            conditional.Append(")");
+
+            
             conditional.Append(")");
 
             return conditional.ToString();
