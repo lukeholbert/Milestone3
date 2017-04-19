@@ -30,3 +30,27 @@ C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\bin\
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\bin\Debug\Npgsql.xml
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Milestone3.exe.config
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Milestone3.exe
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Milestone3.pdb
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Npgsql.dll
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\system.windows.controls.datavisualization.toolkit.dll
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\WPFToolkit.dll
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\Npgsql.xml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\system.windows.controls.datavisualization.toolkit.pdb
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\bin\Debug\WPFToolkit.pdb
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\CheckinsChart.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\MainWindow.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\App.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3_MarkupCompile.cache
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3_MarkupCompile.lref
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\CheckinsChart.baml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\MainWindow.baml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.g.resources
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.Properties.Resources.resources
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.csproj.GenerateResource.Cache
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.exe
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.pdb
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\Milestone3.csprojResolveAssemblyReference.cache

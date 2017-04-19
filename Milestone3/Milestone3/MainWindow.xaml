@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Milestone3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1000">
+        Title="CptS 451 | Milestone 3 Database Application" Height="700" Width="1000">
     <Grid>
-        <TabControl>
+        <TabControl Background="#FFD6D6D6">
             <TabItem Header="User Information">
                 <Grid Margin="0,-7,0,7">
                     <GroupBox x:Name="userGroupBox" Header="Set Current User" HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="300" Margin="10,10,0,0">
@@ -49,7 +49,95 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Business Search"/>
+            <TabItem Header="Business Search">
+                <Grid>
+                    <GroupBox x:Name="selectLocationGroupBox" Header="Select Location" HorizontalAlignment="Left" VerticalAlignment="Top" Height="265" Width="229">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="label9" Content="State" HorizontalAlignment="Left" Margin="10,-17,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                            <ComboBox x:Name="selectStateComboBox" HorizontalAlignment="Left" Margin="16,-13,0,0" VerticalAlignment="Top" Width="155" Grid.Column="1" SelectionChanged="selectStateComboBox_SelectionChanged" IsReadOnly="True"/>
+                            <DataGrid x:Name="cityDataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Height="90" Width="197" Grid.ColumnSpan="2" SelectionChanged="cityDataGrid_SelectionChanged"/>
+                            <Label x:Name="labe20" Content="City" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                            <DataGrid x:Name="zipCodeDataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Height="75" Width="197" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                            <Label x:Name="labe21" Content="Zipcode" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="businessCategoryGroupBox" Header="Business Category" HorizontalAlignment="Left" VerticalAlignment="Top" Height="366" Width="229" Margin="0,265,0,0">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid x:Name="mainBusinessCategorydataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,-19,0,0" VerticalAlignment="Top" Height="191" Width="197" Grid.ColumnSpan="2"/>
+                            <DataGrid x:Name="selectedBusinessCategorydataGrid" ColumnWidth="195" HeadersVisibility="None" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" Height="85" Width="197" Grid.ColumnSpan="2" IsReadOnly="True"/>
+                            <Button x:Name="searchBusinesButton" Grid.ColumnSpan="2" Content="Search Businesses" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="197" Height="25" FontWeight="Bold" Click="searchBusinesButton_Click"/>
+                            <Button x:Name="businessCategoryAddButton" Grid.ColumnSpan="2" Content="Add" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Width="86" Height="20" Click="businessCategoryAddButton_Click"/>
+                            <Button x:Name="businessCategoryRemoveButton" Content="Remove" Margin="75,177,10,0" VerticalAlignment="Top" Grid.Column="1" Height="20" Click="businessCategoryRemoveButton_Click"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="openBusinessesGroupBox" Header="Open Businesses" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="558" Margin="234,0,0,0">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="label10" Content="Day of Week" HorizontalAlignment="Left" Margin="10,-17,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                            <ComboBox x:Name="dayOfWeekComboBox" HorizontalAlignment="Left" Margin="92,-13,0,0" VerticalAlignment="Top" Width="138" Grid.ColumnSpan="2"/>
+                            <Label x:Name="label12" Content="From" HorizontalAlignment="Left" Margin="152,-17,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <ComboBox x:Name="fromComboBox" HorizontalAlignment="Left" Margin="192,-13,0,0" VerticalAlignment="Top" Width="105" Grid.Column="1"/>
+                            <Label x:Name="label13" Content="To" HorizontalAlignment="Left" Margin="321,-18,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <ComboBox x:Name="toComboBox" HorizontalAlignment="Left" Margin="347,-14,0,0" VerticalAlignment="Top" Width="105" Grid.Column="1"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="selectedBusinessGroupBox" Header="Selected Businesses" HorizontalAlignment="Left" VerticalAlignment="Top" Height="101" Width="558" Margin="234,530,0,0">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="selectedBusinessLabel" Content="" HorizontalAlignment="Left" Margin="10,-18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="452" Height="23" Background="#FF4BA7DC"/>
+                            <TextBox x:Name="tipTextBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="47" Margin="10,10,0,0" TextWrapping="Wrap" Text="&lt;&lt;tip text&gt;&gt;" VerticalAlignment="Top" Width="452"/>
+                            <Button x:Name="selectedBusinessCheckinButton" Content="Checkin" Margin="376,-18,0,0" VerticalAlignment="Top" Grid.Column="1" Height="28" Background="#FF2635CD" Foreground="White"/>
+                            <Button x:Name="selectedBusinessAddTipButton" Content="Add Tip" Margin="376,15,0,0" VerticalAlignment="Top" Grid.Column="1" Height="28" Background="#FF2635CD" Foreground="White"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="searchResultsGroupBox" Header="SEARCH RESULTS" HorizontalAlignment="Left" VerticalAlignment="Top" Height="475" Width="558" Margin="234,55,0,0">
+                        <DataGrid x:Name="searchResultsDataGrid" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Height="440" Width="548">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="BusinessName" Width="140"/>
+                                <DataGridTextColumn Binding="{Binding address}" ClipboardContentBinding="{x:Null}" Header="Address" Width="265"/>
+                                <DataGridTextColumn Binding="{Binding numtips}" ClipboardContentBinding="{x:Null}" Header="#ofTips"/>
+                                <DataGridTextColumn Binding="{Binding totcheckins}" ClipboardContentBinding="{x:Null}" Header="TotalCheckins" Width="200"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                    <GroupBox x:Name="businessDetailsGroupBox" Header="Business Details" HorizontalAlignment="Left" VerticalAlignment="Top" Height="94" Width="179" Margin="797,56,0,0">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25*"/>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="118*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="businessDetailsShowCheckinsButton" Content="Show Checkins" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold" Click="businessDetailsShowCheckinsButton_Click"/>
+                            <Button x:Name="businessDetailsShowTipsButton" Content="Show Tips" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="categoryStatusGroupBox" Header="Category Status" HorizontalAlignment="Left" VerticalAlignment="Top" Height="94" Width="179" Margin="797,230,0,0">
+                        <Grid Margin="0,22,0,-22">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36*"/>
+                                <ColumnDefinition Width="181*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="numbBisPerCatButton" Content="#of Businesss per Category" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold"/>
+                            <Button x:Name="avgStarPerCatButton" Content="Avg Stars per Category" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold"/>
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

@@ -57,7 +57,6 @@ namespace Milestone3
     private List<Friend> friends = new List<Friend>();
     private List<Tip> tips = new List<Tip>();
 
-    const string login = "Host=localhost; Username=postgres; Password=password; Database = Milestone2DB";
 
     private void setUserButton_Click(object sender, RoutedEventArgs e)
     {
