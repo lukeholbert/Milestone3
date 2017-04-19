@@ -20,35 +20,39 @@ namespace Milestone3
     /// </summary>
     public partial class CheckinsChart : Window
     {
-        public CheckinsChart()
+        public CheckinsChart(string bid)
         {
             InitializeComponent();
-            //PopulateCheckinsChart("1111");
-        }
+
+          PopulateCheckinsChart(bid);
+    }
         
         private void PopulateCheckinsChart(String bid)
         {
             List<KeyValuePair<String, int>> data = new List<KeyValuePair<string, int>>();
+            data.Add(new KeyValuePair<string, int>("Sunday", 0));
+            data.Add(new KeyValuePair<string, int>("Monday", 0));
+            data.Add(new KeyValuePair<string, int>("Tuesday", 0));
+            data.Add(new KeyValuePair<string, int>("Wednesday", 0));
+            data.Add(new KeyValuePair<string, int>("Thursday", 0));
+            data.Add(new KeyValuePair<string, int>("Friday", 0));
+            data.Add(new KeyValuePair<string, int>("Saturday", 0));
 
-            using (NpgsqlConnection sqlconn = new NpgsqlConnection(MainWindow.login))
+      using (NpgsqlConnection sqlconn = new NpgsqlConnection(MainWindow.login))
             {//Start SQL interaction
                 sqlconn.Open();
                 using (NpgsqlCommand cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = sqlconn;
-                    cmd.CommandText = "SELECT dayofweek, Count(num_checkins) FROM Checkin WHERE bid = '" + bid + "' group by dayofweek;";
+                    cmd.CommandText = "SELECT dayofweek, SUM(num_checkins) FROM Checkin WHERE bid = '" + bid + "' group by dayofweek;";
 
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            data.Add(new KeyValuePair<string, int>(reader.GetString(0), int.Parse(reader.GetString(1))));
+                            data[data.IndexOf(new KeyValuePair<string, int>(reader.GetString(0), 0))] = new KeyValuePair<string, int>(reader.GetString(0), int.Parse(reader.GetString(1)));
                         }
                     }
-
-                    data.Add(new KeyValuePair<string, int>("Thursork", 11));
-                    data.Add(new KeyValuePair<string, int>("Wenhay", 15));
-                    data.Add(new KeyValuePair<string, int>("Monhawk", 10));
 
                     CheckinGraph.DataContext = data;
                 }

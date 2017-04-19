@@ -21,7 +21,7 @@ namespace Milestone3
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static readonly string login = "Host=localhost; Username=postgres; Password=1506954; Database = MS2";
+        public static readonly string login = "Host=localhost; Username=postgres; Password=password; Database = Milestone2DB";
 
         public MainWindow()
         {
