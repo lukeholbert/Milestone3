@@ -65,11 +65,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AverageStarsChart.xaml.cs">
+      <DependentUpon>AverageStarsChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessCategoryChart.xaml.cs">
+      <DependentUpon>BusinessCategoryChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BusinessSearch.cs" />
+    <Compile Include="BusinessTips.xaml.cs">
+      <DependentUpon>BusinessTips.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CheckinsChart.xaml.cs">
       <DependentUpon>CheckinsChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInformation.cs" />
+    <Page Include="AverageStarsChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BusinessCategoryChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BusinessTips.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CheckinsChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

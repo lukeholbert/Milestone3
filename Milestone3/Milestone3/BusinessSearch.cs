@@ -76,13 +76,15 @@ namespace Milestone3
             public String address { get; set; }
             public String numtips { get; set; }
             public String totcheckins { get; set; }
+            public string bid; 
 
-            public Business(string name, string address, string numtips, string totcheckins)
+            public Business(string name, string address, string numtips, string totcheckins, string bid)
             {
                 this.name = name;
                 this.address = address;
                 this.numtips = numtips;
                 this.totcheckins = totcheckins;
+                this.bid = bid;
             }
 
             public override bool Equals(System.Object obj)
@@ -196,8 +198,32 @@ namespace Milestone3
 
         private void businessDetailsShowCheckinsButton_Click(object sender, RoutedEventArgs e)
         {
-            CheckinsChart popUpChart = new CheckinsChart();
-            popUpChart.Show();
+            if (searchResultsDataGrid.SelectedIndex != -1)
+            {
+                CheckinsChart popUpChart = new CheckinsChart(bizList[searchResultsDataGrid.SelectedIndex].bid);
+                popUpChart.Show();
+            }
+        }
+
+        private void businessDetailsShowTipsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (searchResultsDataGrid.SelectedIndex != -1)
+            {
+                BusinessTips window = new BusinessTips(bizList[searchResultsDataGrid.SelectedIndex].bid);
+                window.Show();
+            }
+        }
+
+        private void numbBisPerCatButton_Click(object sender, RoutedEventArgs e)
+        {
+            BusinessCategoryChart window = new BusinessCategoryChart();
+            window.Show();
+        }
+
+        private void avgStarPerCatButton_Click(object sender, RoutedEventArgs e)
+        {
+            AverageStarsChart window = new AverageStarsChart();
+            window.Show();
         }
 
         //When you press the 'Search Businessess' button int he 'Business Category' group.
@@ -210,13 +236,13 @@ namespace Milestone3
                 using (NpgsqlCommand cmd = new NpgsqlCommand())
                 {
                     cmd.Connection = sqlconn;
-                    cmd.CommandText = "SELECT name, full_address, review_count, numcheckins FROM Business WHERE (" + LocationCondition() + ") AND (" + CategoryCondition() + ") AND (" + HoursCondition() + ") order by name; ";
+                    cmd.CommandText = "SELECT name, full_address, review_count, numcheckins, bid FROM Business WHERE (" + LocationCondition() + ") AND (" + CategoryCondition() + ") AND (" + HoursCondition() + ") order by name; ";
 
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            bizList.Add(new Business(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+                            bizList.Add(new Business(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
                         }
                     }
 

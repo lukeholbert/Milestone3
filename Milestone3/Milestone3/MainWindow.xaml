@@ -117,22 +117,25 @@
                     <GroupBox x:Name="businessDetailsGroupBox" Header="Business Details" HorizontalAlignment="Left" VerticalAlignment="Top" Height="94" Width="179" Margin="797,56,0,0">
                         <Grid Margin="0,22,0,-22">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25*"/>
-                                <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="118*"/>
+                                <ColumnDefinition Width="27*"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="104*"/>
+                                <ColumnDefinition Width="26*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="businessDetailsShowCheckinsButton" Content="Show Checkins" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold" Click="businessDetailsShowCheckinsButton_Click"/>
-                            <Button x:Name="businessDetailsShowTipsButton" Content="Show Tips" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold"/>
+                            <Button x:Name="businessDetailsShowCheckinsButton" Content="Show Checkins" Margin="0,-18,0,62" VerticalAlignment="Bottom" Height="28" Background="#FF394BFF" Grid.ColumnSpan="4" Foreground="White" FontWeight="Bold" Click="businessDetailsShowCheckinsButton_Click"/>
+                            <Button x:Name="businessDetailsShowTipsButton" Content="Show Tips" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF394BFF" Grid.ColumnSpan="4" Foreground="White" FontWeight="Bold" Click="businessDetailsShowTipsButton_Click"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox x:Name="categoryStatusGroupBox" Header="Category Status" HorizontalAlignment="Left" VerticalAlignment="Top" Height="94" Width="179" Margin="797,230,0,0">
                         <Grid Margin="0,22,0,-22">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="36*"/>
-                                <ColumnDefinition Width="181*"/>
+                                <ColumnDefinition Width="28*"/>
+                                <ColumnDefinition Width="97*"/>
+                                <ColumnDefinition Width="11*"/>
+                                <ColumnDefinition Width="31*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="numbBisPerCatButton" Content="#of Businesss per Category" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold"/>
-                            <Button x:Name="avgStarPerCatButton" Content="Avg Stars per Category" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="2" Foreground="White" FontWeight="Bold"/>
+                            <Button x:Name="numbBisPerCatButton" Content="#of Businesss per Category" Margin="0,-18,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="4" Foreground="White" FontWeight="Bold" Click="numbBisPerCatButton_Click"/>
+                            <Button x:Name="avgStarPerCatButton" Content="Avg Stars per Category" Margin="0,15,0,0" VerticalAlignment="Top" Height="28" Background="#FF3C3C3C" Grid.ColumnSpan="4" Foreground="White" FontWeight="Bold" Click="avgStarPerCatButton_Click"/>
                         </Grid>
                     </GroupBox>
 
