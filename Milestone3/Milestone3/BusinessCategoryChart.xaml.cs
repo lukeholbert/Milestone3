@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace Milestone3
 {
@@ -19,15 +20,46 @@ namespace Milestone3
   /// </summary>
   public partial class BusinessCategoryChart : Window
   {
-    public BusinessCategoryChart()
+    public BusinessCategoryChart(List<string> bids)
     {
       InitializeComponent();
-      // Placeholder data so we wont get null refs when loading
-      List<KeyValuePair<String, int>> data = new List<KeyValuePair<string, int>>();
-      data.Add(new KeyValuePair<string, int>("Sunday", 0));
-      data.Add(new KeyValuePair<string, int>("Monday", 0));
-      data.Add(new KeyValuePair<string, int>("Tuesday", 0));
-      BusinessCategoryGraph.DataContext = data;
+      PopulateBusinessChart(bids);
+    }
+
+    private void PopulateBusinessChart(List<string> bids)
+    {
+      Dictionary<string, int> data = new Dictionary<string, int>();
+
+      using (NpgsqlConnection sqlconn = new NpgsqlConnection(MainWindow.login))
+      {//Start SQL interaction
+        sqlconn.Open();
+        using (NpgsqlCommand cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+
+          foreach (var bid in bids)
+          {
+            cmd.CommandText = "SELECT Category.name FROM Category JOIN Business ON Category.bid = Business.bid WHERE Category.bid = '" + bid + "';";
+
+            using (NpgsqlDataReader reader = cmd.ExecuteReader())
+            {
+              while (reader.Read())
+              {
+                string cat = reader.GetString(0);
+                if(!data.ContainsKey(cat))
+                {
+                  data.Add(cat, 0);
+                }
+
+                data[cat]++;
+              }
+            }
+          }
+
+          BusinessCategoryGraph.DataContext = data.ToList();
+        }
+        sqlconn.Close();
+      }//End SQL interaction
     }
   }
 }

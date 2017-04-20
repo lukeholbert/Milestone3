@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace Milestone3
 {
@@ -19,15 +20,36 @@ namespace Milestone3
   /// </summary>
   public partial class AverageStarsChart : Window
   {
-    public AverageStarsChart()
+    public AverageStarsChart(string zipcode, string city)
     {
       InitializeComponent();
-      // placeholder data so we dont get null refs when opening
-      List<KeyValuePair<String, int>> data = new List<KeyValuePair<string, int>>();
-      data.Add(new KeyValuePair<string, int>("Sunday", 0));
-      data.Add(new KeyValuePair<string, int>("Monday", 0));
-      data.Add(new KeyValuePair<string, int>("Tuesday", 0));
-      AverageStarsGraph.DataContext = data;
+      PopulateStarsChart(zipcode, city);
+    }
+
+    private void PopulateStarsChart(string zipcode, string city)
+    {
+      List<KeyValuePair<String, double>> data = new List<KeyValuePair<string, double>>();
+
+      using (NpgsqlConnection sqlconn = new NpgsqlConnection(MainWindow.login))
+      {//Start SQL interaction
+        sqlconn.Open();
+        using (NpgsqlCommand cmd = new NpgsqlCommand())
+        {
+          cmd.Connection = sqlconn;
+          cmd.CommandText = "SELECT name, AVG(stars) From Category NATURAL JOIN (SELECT bid, stars FROM Business WHERE zipcode = '" + zipcode + "' AND city = '" + city + "') AS foo GROUP BY name;";
+
+          using (NpgsqlDataReader reader = cmd.ExecuteReader())
+          {
+            while (reader.Read())
+            {
+              data.Add(new KeyValuePair<string, double>(reader.GetString(0), reader.GetDouble(1)));
+            }
+          }
+
+          AverageStarsGraph.DataContext = data;
+        }
+        sqlconn.Close();
+      }//End SQL interaction
     }
   }
 }
