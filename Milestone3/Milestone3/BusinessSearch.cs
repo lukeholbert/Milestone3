@@ -205,6 +205,27 @@ namespace Milestone3
             }
         }
 
+        private void businessDetailsShowTipsButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (searchResultsDataGrid.SelectedIndex != -1)
+            {
+                BusinessTips window = new BusinessTips(bizList[searchResultsDataGrid.SelectedIndex].bid);
+                window.Show();
+            }
+        }
+
+        private void numbBisPerCatButton_Click(object sender, RoutedEventArgs e)
+        {
+            BusinessCategoryChart window = new BusinessCategoryChart();
+            window.Show();
+        }
+
+        private void avgStarPerCatButton_Click(object sender, RoutedEventArgs e)
+        {
+            AverageStarsChart window = new AverageStarsChart();
+            window.Show();
+        }
+
         //When you press the 'Search Businessess' button int he 'Business Category' group.
         private void searchBusinesButton_Click(object sender, RoutedEventArgs e)
         {

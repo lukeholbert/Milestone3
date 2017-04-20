@@ -98,7 +98,5 @@ namespace Milestone3
                 toComboBox.Items.Add(times[i]);
             }
         }
-
-        
-    }
+  }
 }
