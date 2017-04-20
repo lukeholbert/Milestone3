@@ -266,7 +266,62 @@ namespace Milestone3
 
         private void selectedBusinessCheckinButton_Click(object sender, RoutedEventArgs e)
         {
+            if (searchResultsDataGrid.SelectedIndex == -1 || currentUser.Equals(""))
+                return;
 
+            using (NpgsqlConnection sqlconn = new NpgsqlConnection(login))
+            {//Start SQL interaction
+                sqlconn.Open();
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = sqlconn;
+
+                    StringBuilder command = new StringBuilder("");
+                    StringBuilder fallthroughQuery = new StringBuilder("INSERT INTO Checkin VALUES('" + bizList[searchResultsDataGrid.SelectedIndex].bid + "', ");
+                    command.Append("UPDATE Checkin SET num_checkins = num_checkins + 1 WHERE bid = '" + bizList[searchResultsDataGrid.SelectedIndex].bid + "' AND ");
+
+
+                    command.Append("dayofweek = '" + DateTime.Today.DayOfWeek + "' AND ");
+                    fallthroughQuery.Append("'" + DateTime.Today.DayOfWeek + "', ");
+
+                    if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 6)
+                    {
+                        command.Append("timeofday = '0-5';");
+                        fallthroughQuery.Append("'0-5', ");
+                    } else if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 12)
+                    {
+                        command.Append("timeofday = '6-11';");
+                        fallthroughQuery.Append("'6-11', ");
+                    }
+                    else if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 18)
+                    {
+                        command.Append("timeofday = '12-17';");
+                        fallthroughQuery.Append("'12-17', ");
+                    }
+                    else if (DateTime.Now.Hour >= 18 && DateTime.Now.Hour < 24)
+                    {
+                        command.Append("timeofday = '18-24';");
+                        fallthroughQuery.Append("'18-24', ");
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                    
+
+                    cmd.CommandText = command.ToString();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if(rowsAffected == 0)
+                    {
+                        fallthroughQuery.Append("1);");
+
+                        cmd.CommandText = fallthroughQuery.ToString();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                sqlconn.Close();
+            }//End SQL interaction
         }
 
         //When you press the 'Search Businessess' button int he 'Business Category' group.
@@ -342,8 +397,6 @@ namespace Milestone3
         }
 
         //Generates a conditional for a SQL query based upon the selected items in the 'Open Buisnessess' group.
-        //Note: When you set a time in the 'From' box it means the Biz opens EXACTLY at that time, not before, not after.
-        //      The same is true for the 'To' box. This is because 'before' is subjective and if we try to include a biz that opens early we'll just go around the clock...
         private String HoursCondition()
         {
             String day = (String)dayOfWeekComboBox.SelectedItem;
@@ -394,10 +447,5 @@ namespace Milestone3
 
             return conditional.ToString();
         }
-
-
-
-
-        
     }
 }
