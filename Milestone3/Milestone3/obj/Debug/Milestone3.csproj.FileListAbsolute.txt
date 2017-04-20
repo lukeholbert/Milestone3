@@ -66,3 +66,9 @@ C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\Debug\AverageStarsChart.baml
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessCategoryChart.baml
 C:\Users\Luke\Desktop\Spring 2017\Cpts 451\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessTips.baml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\AverageStarsChart.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessCategoryChart.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessTips.g.cs
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\AverageStarsChart.baml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessCategoryChart.baml
+C:\Users\KrisR\Desktop\Git Projects\Milestone3\Milestone3\Milestone3\obj\Debug\BusinessTips.baml

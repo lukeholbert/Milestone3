@@ -226,6 +226,49 @@ namespace Milestone3
             window.Show();
         }
 
+        private void searchResultsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Business biz = (Business)searchResultsDataGrid.SelectedItem;
+            if (biz == null)
+            {
+                selectedBusinessLabel.Content = "";
+            }
+            else {
+                selectedBusinessLabel.Content = biz.name;
+            }
+        }
+
+        private void selectedBusinessAddTipButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (searchResultsDataGrid.SelectedIndex == -1 || currentUser.Equals(""))
+                return;
+
+            using (NpgsqlConnection sqlconn = new NpgsqlConnection(login))
+            {//Start SQL interaction
+                sqlconn.Open();
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = sqlconn;
+
+                    StringBuilder query = new StringBuilder("");
+                    query.Append("INSERT INTO Tip VALUES('" + tipTextBox.Text + "', ");
+                    query.Append("'" + DateTime.Now.ToString("yyyy-MM-dd") + "', ");
+                    query.Append("0,'" + currentUser + "','" + bizList[searchResultsDataGrid.SelectedIndex].bid + "');");
+
+                    cmd.CommandText = query.ToString();
+                    cmd.ExecuteNonQuery();
+
+                    tipTextBox.Text = "<Review Submitted>";
+                }
+                sqlconn.Close();
+            }//End SQL interaction
+        }
+
+        private void selectedBusinessCheckinButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //When you press the 'Search Businessess' button int he 'Business Category' group.
         private void searchBusinesButton_Click(object sender, RoutedEventArgs e)
         {
