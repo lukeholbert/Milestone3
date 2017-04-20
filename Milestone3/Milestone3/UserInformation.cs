@@ -56,6 +56,7 @@ namespace Milestone3
   {
     private List<Friend> friends = new List<Friend>();
     private List<Tip> tips = new List<Tip>();
+    public String currentUser = "";
 
 
     private void setUserButton_Click(object sender, RoutedEventArgs e)
@@ -130,6 +131,7 @@ namespace Milestone3
           {
             while (reader.Read())
             {
+              currentUser = reader.GetString(0);
               nameTextBox.Text = reader.GetString(1);
               starsTextBox.Text = reader.GetDecimal(3).ToString();
               yelpSinceTextBox.Text = reader.GetString(4);
