@@ -216,14 +216,20 @@ namespace Milestone3
 
         private void numbBisPerCatButton_Click(object sender, RoutedEventArgs e)
         {
-            BusinessCategoryChart window = new BusinessCategoryChart();
-            window.Show();
+            if (bizList.Count > 0)
+            {
+                BusinessCategoryChart window = new BusinessCategoryChart(bizList.Select(x => x.bid).ToList());
+                window.Show();
+            }
         }
 
         private void avgStarPerCatButton_Click(object sender, RoutedEventArgs e)
         {
-            AverageStarsChart window = new AverageStarsChart();
-            window.Show();
+            if (zipCodeDataGrid.SelectedIndex != -1)
+            {
+                AverageStarsChart window = new AverageStarsChart(zipList[zipCodeDataGrid.SelectedIndex].myString, cityList[cityDataGrid.SelectedIndex].myString);
+                window.Show();
+            }
         }
 
         //When you press the 'Search Businessess' button int he 'Business Category' group.
